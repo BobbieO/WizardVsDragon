@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+
+    <!-- google font -->
+    <link href='https://fonts.googleapis.com/css?family=Monofett' rel='stylesheet' type='text/css'>
+
+    <!-- my css -->
+    <link rel="stylesheet" href="/css/konami.css">
+</head>
+
+<body>
+    <div>
+        <h1 class="text">Enter the Konami Code to Start</h1>
+    </div>
+
+        <div class="road">
+            <div class="fireball"></div>
+            <div class="wizard"></div>
+            <div class="dragon"></div>
+        </div>
+
+    <audio preload="auto" id="metroid">
+        <source src="/sound/Metroid_Door.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="/js/jquery.js"></script>
+    <script>
+        "use strict";
+            
+        var userInput = [];
+
+        // to play success sound
+        function playSound() {
+            $("#metroid")[0].play();
+        }
+
+        $(document).keyup(function(event){
+            
+            // var to store Konami code
+            var codeArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
+
+            // var to store user input, 'concatenated' 
+            userInput.push(event.keyCode);
+            console.log(userInput);
+
+            // change to string for easier comparison
+            var codeArrString = codeArray.join("");
+            var userInputString = userInput.join("");
+
+
+            // to change intro screen to game screen upon successful entry
+            if (userInputString===codeArrString) {
+                playSound();
+                $("body").css("background", "url(/img/fantasyForest.png) no-repeat center fixed").css("background-size", "cover");
+                $("h1").text("You have added 30 lives!");
+                $(".dragon").html("<img src='/img/purpleDragon.png'>");
+                $(".wizard").html("<img src='/img/wizard-icon.png'>");
+            } 
+   
+            // for character movements, only left-right
+            
+            if (event.keyCode=='76') {
+                $(".dragon img").css("margin-right", "-=10px");
+            };
+            if (event.keyCode=='74') {
+                $(".dragon img").css("margin-right", "+=10px");
+            };
+            if (event.keyCode=='65') {
+                $(".wizard img").css("margin-left", "-=4px");
+            };
+            if (event.keyCode=='68') {
+                $(".wizard img").css("margin-left", "+=4px");
+            };
+
+
+            // not working
+            // var dragonRight = 76;
+
+            // if (userInput===dragonRight) {
+            //     $(".dragon img").animate({
+            //         right: "-=10px"
+            //     }, 2500);
+            // };
+
+
+
+
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+<!-- 
+up arrow: 38;
+down arrow: 40;
+left arrow: 37;
+right arrow: 39;
+b: 66;
+a: 65;
+enter: 13;
+
+Konami Code: 38 38 40 40 37 39 37 39 66 65 13
+
+ -->
