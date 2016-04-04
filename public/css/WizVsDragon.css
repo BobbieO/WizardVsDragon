@@ -3,9 +3,12 @@ body {
     background-size: cover;
 } 
 
-.text {
+.fontPos {
     font-family: "Monofett", sans-serif, serif;
     font-size: 4em;
+    display: inline-block;
+    width: 50%;
+    float: left;
 }
 
 .dragon {
@@ -18,7 +21,7 @@ body {
 .wizard {
     display: inline-block;
     width: 50%;
-    float: left;
+    text-align: left;
 }
 
 .dragon img {
