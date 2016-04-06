@@ -37,31 +37,34 @@
             $("#metroid")[0].play();
         }
 
-        $(document).keyup(function(event){
-            
+        var index = 0;
+
+        $(document).keydown(function(event){
             // var to store Konami code
             var codeArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 
-            // var to store user input, 'concatenated' 
-            userInput.push(event.keyCode);
-            console.log(userInput);
-
-            // change to string for easier comparison
-            var codeArrString = codeArray.join("");
-            var userInputString = userInput.join("");
-
+            // for Konami entry fail notice
+            if (codeArray[index] == event.keyCode) {
+                index++;
+            } else {
+                $(".leftText").text("Nope! Try again.");
+                index = 0;
+            }
 
             // to change intro screen to game screen upon successful entry
-            if (userInputString===codeArrString) {
+            if (index == codeArray.length) {
+                index = 0;
                 playSound();
                 $("body").css("background", "url(/img/fantasyForest.png) no-repeat center fixed").css("background-size", "cover");
                 $(".leftText").text("Use a-d to move").css("font-size", "2.5em");
                 $(".dragon").html("<img src='/img/purpleDragon.png'>");
                 $(".wizard").html("<img src='/img/wizard-icon.png'>");
-            } 
+            }; 
+            
+            // var to store user input, 'concatenated' 
+            userInput.push(event.keyCode);
    
             // for character movements, only left-right
-            
             if (event.keyCode=='76') {
                 $(".dragon img").css("margin-right", "-=10px");
             };
@@ -85,7 +88,7 @@
             //     }, 2500);
             // };
 
-
+            // try using margin-right instead of right
 
 
         });
