@@ -40,6 +40,7 @@
         var index = 0;
 
         $(document).keydown(function(event){
+
             // var to store Konami code
             var codeArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
 
@@ -57,6 +58,15 @@
                 playSound();
                 $("body").css("background", "url(/img/fantasyForest.png) no-repeat center fixed").css("background-size", "cover");
                 $(".leftText").text("Use a-d to move").css("font-size", "2.5em");
+                $(".rightText").text("Use j-l to move").css(
+                    {
+                        "font-size": "2.5em",
+                        "font-family": "Monofett",
+                        "display": "inline-block",
+                        "width": "50%",
+                        "float": "left",
+                        "text-align": "center"
+                    });
                 $(".dragon").html("<img src='/img/purpleDragon.png'>");
                 $(".wizard").html("<img src='/img/wizard-icon.png'>");
                 $(document).off("keydown");
