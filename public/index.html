@@ -59,39 +59,32 @@
                 $(".leftText").text("Use a-d to move").css("font-size", "2.5em");
                 $(".dragon").html("<img src='/img/purpleDragon.png'>");
                 $(".wizard").html("<img src='/img/wizard-icon.png'>");
+                $(document).off("keydown");
+                $(document).keydown(movements);
             }; 
+         });
+
+
+        function movements(event) {
             
             // var to store user input, 'concatenated' 
             userInput.push(event.keyCode);
    
             // for character movements, only left-right
             if (event.keyCode=='76') {
-                $(".dragon img").css("margin-right", "-=10px");
+                $(".dragon img").animate({"margin-right": "-=95px"});
             };
             if (event.keyCode=='74') {
-                $(".dragon img").css("margin-right", "+=10px");
+                $(".dragon img").animate({"margin-right": "+=95px"});
             };
             if (event.keyCode=='65') {
-                $(".wizard img").css("margin-left", "-=4px");
+                $(".wizard img").animate({"margin-left": "-=90px"});
             };
             if (event.keyCode=='68') {
-                $(".wizard img").css("margin-left", "+=4px");
+                $(".wizard img").animate({"margin-left": "+=90px"});
             };
 
-
-            // not working
-            // var dragonRight = 76;
-
-            // if (userInput===dragonRight) {
-            //     $(".dragon img").animate({
-            //         right: "-=10px"
-            //     }, 2500);
-            // };
-
-            // try using margin-right instead of right
-
-
-        });
+        };
     </script>
 </body>
 </html>
