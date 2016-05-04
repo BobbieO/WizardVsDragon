@@ -7,32 +7,34 @@ body {
     font-family: "Monofett", sans-serif, serif;
     font-size: 4em;
     display: inline-block;
-    width: 50%;
-    float: left;
     text-align: center;
+}
+
+.rightDiv {
+    text-align: right;
 }
 
 .dragon {
     display: inline-block;
-    width: 50%;
-    float: right;
+    /*width: 50%;*/
+    /*float: right;*/
     text-align: right;
 }
 
 .wizard {
     display: inline-block;
-    width: 50%;
-    text-align: left;
+    /*width: 50%;*/
+    /*text-align: left;*/
 }
 
 .dragon img {
-    margin-top: 380px;
-    margin-right: 135px;
+    /*margin-top: 380px;*/
+    /*margin-right: 135px;*/
 }
 
 
 
 .wizard img {
-    margin-top: 400px;
-    margin-left: 200px;
+    /*margin-top: 400px;*/
+    /*margin-left: 200px;*/
 }

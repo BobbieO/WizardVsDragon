@@ -6,20 +6,37 @@
     <!-- google font -->
     <link href='https://fonts.googleapis.com/css?family=Monofett' rel='stylesheet' type='text/css'>
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
     <!-- my css -->
     <link rel="stylesheet" href="/css/WizVsDragon.css">
 </head>
 
 <body>
-    <div>
-        <h2 class="leftText fontPos">Enter the Konami Code to Start</h2>
-        <h2 class="rightText"></h2>
-    </div>
+    <div class="container">
 
-        <div class="road">
-            <div class="wizard"></div>
-            <div class="dragon"></div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="leftText fontPos">Enter the Konami Code to Start</h2>
+            </div>
+
+            <div class="col-md-6 rightDiv">
+                <h2 class="rightText"></h2>
+            </div>
         </div>
+
+        <div class="row road">
+            <div class="col-md-6">
+                <div class="wizard"></div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="dragon"></div>
+            </div>
+        </div>
+
+    </div>
 
     <!-- audio file courtesty of Brandino480 via soundbible.com -->
     <audio preload="auto" id="metroid">
@@ -27,6 +44,7 @@
     </audio>
 
     <script src="/js/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script>
     (function(){ 
         "use strict";
@@ -63,10 +81,7 @@
                     {
                         "font-size": "2.5em",
                         "font-family": "Monofett",
-                        "display": "inline-block",
-                        "width": "50%",
-                        "float": "left",
-                        "text-align": "center"
+                        "display": "inline-block"
                     });
                 $(".dragon").html("<img src='/img/purpleDragon.png'>");
                 $(".wizard").html("<img src='/img/wizard-icon.png'>");
