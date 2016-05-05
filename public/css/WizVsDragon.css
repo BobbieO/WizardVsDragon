@@ -29,9 +29,16 @@ body {
     margin-right: 135px;
 }
 
-
+.fire {
+    text-align: center;
+    margin-top: 430px;
+}
+.fire img {
+    opacity: 0;
+}
 
 .wizard img {
     margin-top: 400px;
     margin-left: 200px;
+    animation-iteration-count: 2;
 }

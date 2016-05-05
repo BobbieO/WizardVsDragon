@@ -27,11 +27,18 @@
         </div>
 
         <div class="row road">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="wizard"></div>
             </div>
 
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <div class="fire">
+                    <img id="wizFire" src="/img/wizFire.png">
+                    <img id="draongFire" src="/img/dragonFire.png">
+                </div>
+            </div>
+
+            <div class="col-md-4">
                 <div class="dragon"></div>
             </div>
         </div>
@@ -90,12 +97,14 @@
             }; 
          });
 
-
         function movements(event) {
             
             // var to store user input, 'concatenated' 
             userInput.push(event.keyCode);
    
+            //var for randomizer
+            var randomNum = Math.floor((Math.random() * 100) + 1);
+
             // for character movements, only left-right
             if (event.keyCode=='76') {
                 $(".dragon img").animate({"margin-right": "-=95px"});
@@ -109,7 +118,31 @@
             if (event.keyCode=='68') {
                 $(".wizard img").animate({"margin-left": "+=90px"});
             };
+
+            //for "fighting" (only wizard fire now)
+            if (event.keyCode=='32') {
+                $("#wizFire").css("opacity", "1").animate({"margin-left":"+=300px"});
+                    
+                    var fireballMove = document.getElementById("wizFire");
+
+                    fireballMove.addEventListener("animationend", function boom(){
+
+                        $(".dragon").html("<img src='/img/explode.png'>");
+                    });
+            };
+
         };
+
+        //NOTES TO DO:
+
+            //remove dragon movement? fix why not moving?
+
+            //if %2 wiz fires, else dragon fires
+
+            //fix animation end/start thing: opposite should "disappear" and replace by explosion.
+        
+
+
     })();
     </script>
 </body>
