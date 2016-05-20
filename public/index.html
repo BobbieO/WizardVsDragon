@@ -3,8 +3,6 @@
 <head>
     <title>Wizard vs Dragon Konami</title>
 
-    <!-- bobbieo.dev is latest working version, need to update -->
-
     <!-- google font -->
     <link href='https://fonts.googleapis.com/css?family=Monofett' rel='stylesheet' type='text/css'>
 
@@ -19,11 +17,11 @@
     <div class="container">
 
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-6 text-center">
                 <h2 class="leftText fontPos">Enter the Konami Code to Start</h2>
             </div>
 
-            <div class="col-md-6 rightDiv">
+            <div class="col-md-6 text-right">
                 <h2 class="rightText"></h2>
             </div>
         </div>
@@ -45,6 +43,10 @@
             </div>
         </div>
 
+        <div class="btn">
+            <button id="reset">Start Over</button>
+        </div>
+
     </div>
 
     <!-- audio file courtesty of Brandino480 via soundbible.com -->
@@ -53,111 +55,7 @@
     </audio>
 
     <script src="/js/jquery.js"></script>
+    <script src="/js/wizard.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script>
-    (function(){ 
-        "use strict";
-            
-        var userInput = [];
-
-        // to play success sound
-        function playSound() {
-            $("#metroid")[0].play();
-        }
-
-        var index = 0;
-
-        $(document).keydown(function(event){
-
-            // var to store Konami code
-            var codeArray = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65, 13];
-
-            // for Konami entry fail notice
-            if (codeArray[index] == event.keyCode) {
-                index++;
-            } else {
-                $(".leftText").text("Nope! Try again.");
-                index = 0;
-            }
-
-            // to change intro screen to game screen upon successful entry
-            if (index == codeArray.length) {
-                index = 0;
-                playSound();
-                $("body").css("background", "url(/img/fantasyForest.png) no-repeat center fixed").css("background-size", "cover");
-                $(".leftText").text("Use a-d to move").css("font-size", "2.5em");
-                $(".rightText").text("Use spacebar to shoot").css(
-                    {
-                        "font-size": "2.5em",
-                        "font-family": "Monofett",
-                        "display": "inline-block"
-                    });
-                $(".dragon").html("<img src='/img/purpleDragon.png'>");
-                $(".wizard").html("<img src='/img/wizard-icon.png'>");
-                $(document).off("keydown");
-                $(document).keydown(movements);
-            }; 
-         });
-
-        function movements(event) { 
-            // var to store user input, 'concatenated' 
-            userInput.push(event.keyCode);
-   
-            //var for randomizer
-            var randomNum = Math.floor((Math.random() * 100) + 1);
-            //var target wizFire
-            var fireballMove = document.getElementById("wizFire");
-
-            if (event.keyCode=='65') {
-                $(".wizard img").animate({"margin-left": "-=90px"});
-            };
-            if (event.keyCode=='68') {
-                $(".wizard img").animate({"margin-left": "+=90px"});
-            };
-
-            //for "fighting" (only wizard fire now)
-            if (event.keyCode=='32') {
-                if(randomNum % 2 == 0) {
-                    $("#wizFire").css("opacity", "1").animate({"margin-left":"+=300px"}, function() {
-                        $(".dragon").html("<img src='/img/explode.png'>"); 
-                        $("#wizFire").css("opacity", "0"); 
-                    });
-                } else {
-                    $("#dragonFire").css("opacity", "1").animate({"margin-right":"+=300px"}, function() {
-                        $(".wizard").html("<img src='/img/explode.png'>");
-                        $("#dragonFire").css("opacity", "0");
-                    });
-                };
-            };
-        };
-
-
-        //NOTES TO DO:
-
-        //try to limit wizard movement
-        //disable movement after fireball fires
-        //disable multiple fireballs possibility
-        
-
-
-    })();
-    </script>
 </body>
 </html>
-
-
-
-
-
-<!-- 
-up arrow: 38;
-down arrow: 40;
-left arrow: 37;
-right arrow: 39;
-b: 66;
-a: 65;
-enter: 13;
-
-Konami Code: 38 38 40 40 37 39 37 39 66 65 13
-
- -->
