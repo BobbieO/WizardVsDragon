@@ -1,8 +1,10 @@
-# Wizard Vs Dragon: a work in progress
+# Wizard Vs Dragon: a Minorly Epic Battle
 
-This project uses CSS for style and JavaScript and jQuery for functionality. At the moment, there are two events. On the landing page, the user is requested to enter the Konami code (up, up, down, down, left, right, left, right, b, a, enter). The user is rewarded with a success sound and screen change, or prompted with a fail notice to try again.
+This project uses CSS for style and JavaScript and jQuery for functionality. On the opening page, the user is requested to enter the Konami code (up, up, down, down, left, right, left, right, b, a, enter). The user is rewarded with a success sound and screen change, or prompted with a fail notice to try again.
 
-jQuery functions then change the screen to a fantasy scene with a wizard and a dragon. The characters are able to move right and left with .animate. Instructions for movement appear at the top of the screen.
+Upon success, jQuery functions change the screen to a fantasy scene with a wizard and a dragon. The wizard is able to move right and left with .animate. (The dragon is stationary. He fears no-one.) Instruction for movement appears at the top of the screen. The user is also able to shoot fireballs, using the spacebar, which are also animated. This instruction is also displayed on the screen.
+
+Both the dragon and the wizard are capable of firing on the enemy, but a randomizer determines who shoots first. The enemy is destroyed via JS, and replaced with an explosion.
 
 INSTRUCTIONS:
 
@@ -10,6 +12,6 @@ INSTRUCTIONS:
 
 2.) On the next screen, a-d moves the wizard left-right.
 
-3.) j-l moves the dragon left-right.
+3.) Spacebar shoots a fireball.
 
-4.) Future abilities pending.
+4.) The "Start Over" button begins everything again.
